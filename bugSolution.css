@@ -1,0 +1,31 @@
+To resolve this issue and make the `div p` selector override the `div` selector, you can increase its specificity. There are several ways to do so:
+
+1. **Increase Specificity:** Use a more specific selector, for example, by adding an ID to the div or using an extra class on the paragraph. 
+
+```css
+#myDiv p {
+  color: green; /* This will now override */
+}
+
+.myClass p {
+  color: green; /* This will now override */
+}
+
+<div id="myDiv">
+  <p>This text is green.</p>
+</div>
+
+<div>
+  <p class = "myClass"> This text is green.</p>
+</div>
+```
+
+2. **!important (Use Sparingly):** As a last resort, the `!important` flag can be used but is generally discouraged due to its potential to create maintainability problems. 
+
+```css
+div p {
+  color: green !important; /* Works, but generally avoid */
+}
+```
+
+Remember that understanding CSS specificity is crucial for effective styling. Always prioritize more specific selectors, and only resort to `!important` if absolutely necessary.
