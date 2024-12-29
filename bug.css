@@ -1,0 +1,26 @@
+The following CSS code snippet exhibits an uncommon error related to specificity and inheritance:
+
+```css
+div {
+  color: blue;
+}
+
+p {
+  color: red;
+}
+
+div p {
+  color: green; /* This rule is unexpectedly overridden */
+}
+
+.special p {
+  color: purple; /* This rule works as expected */
+}
+
+<div>
+  <p class="special">This text is purple.</p>
+  <p>This text is blue, not green.</p>
+</div>
+```
+
+The `div p` selector should ideally override the `div` selector's color setting for paragraphs within divs, but instead the `div` selector's color is applied to the paragraph. This is not an error in the code, but in understanding the implications of cascading in CSS. The selector `div p` is only slightly more specific than `div`. This is a common pitfall for developers familiar with programming languages where inheritance has a clearer linear relationship.  CSS specificity is more nuanced.
